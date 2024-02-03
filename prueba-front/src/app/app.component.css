@@ -1,0 +1,26 @@
+.nav-links {
+  list-style: none;
+  border-bottom: 1px solid rgb(122, 122, 122);
+  background-color: #575656;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav-links a {
+  font-size: 25px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+body {
+  background-color: black !important;
+}

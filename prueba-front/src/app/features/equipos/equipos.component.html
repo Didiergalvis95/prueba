@@ -1,0 +1,264 @@
+<div class="w-100 d-flex flex-column align-items-center justify-content-center">
+  <section>
+    <h4>Validar numeros pares e impares</h4>
+    <hr class="w-100" />
+  </section>
+  <section class="d-flex justify-content-center">
+    <div class="d-flex flex-column mx-5 justify-content-between">
+      <button
+        (click)="toggleFormularioEquipo()"
+        type="submit"
+        class="btn btn-outline-primary w-100"
+      >
+        Crear Equipo
+      </button>
+      <form
+        *ngIf="mostrarFormularioEquipo"
+        [formGroup]="equipoForm"
+        (ngSubmit)="crearEquipo()"
+        class="d-flex flex-column w-100"
+      >
+        <div class="d-flex flex-column h-100">
+          <div>
+            <div class="form-group">
+              <label class="col-12 col-form-label">Equipo</label>
+              <div class="col-12">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="nombre"
+                  placeholder="Nombre del equipo"
+                />
+                <div
+                  *ngIf="
+                    equipoForm.get('nombre')?.hasError('required') &&
+                    equipoForm.get('nombre')?.touched
+                  "
+                >
+                  <p class="text-danger">
+                    El nombre del equipo es obligatorio.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-12 col-form-label">Estadio</label>
+              <div class="col-12">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="estadio"
+                  placeholder="Nombre del estadio"
+                />
+                <div
+                  *ngIf="
+                    equipoForm.get('estadio')?.hasError('required') &&
+                    equipoForm.get('estadio')?.touched
+                  "
+                >
+                  <p class="text-danger">
+                    El nombre del estadio es obligatorio.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-12 col-form-label">Titulos</label>
+              <div class="col-12">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="titulo"
+                  placeholder="Catidad de títulos"
+                />
+                <div
+                  *ngIf="
+                    equipoForm.get('titulo')?.hasError('required') &&
+                    equipoForm.get('titulo')?.touched
+                  "
+                >
+                  <p class="text-danger">
+                    La cantidad de títulos es obligatoria.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="w-100 btn btn-outline-success mr-2 mt-5"
+              (click)="crearEquipo()"
+            >
+              Guardar Equipo
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex flex-column mx-5">
+      <button
+        (click)="toggleFormularioJugador()"
+        type="submit"
+        class="btn btn-outline-primary"
+      >
+        Crear Jugador
+      </button>
+      <form
+        *ngIf="mostrarFormularioJugador"
+        [formGroup]="jugadorForm"
+        (ngSubmit)="crearJugador()"
+        class="d-flex flex-column w-100"
+      >
+        <div class="form-group">
+          <label class="col-12 col-form-label">Jugador</label>
+          <div class="col-12">
+            <input
+              class="form-control"
+              type="text"
+              formControlName="nombre"
+              placeholder="Nombre del jugador"
+            />
+            <div
+              *ngIf="
+                jugadorForm.get('nombre')?.hasError('required') &&
+                jugadorForm.get('nombre')?.touched
+              "
+            >
+              <p class="text-danger">El nombre del jugador es obligatorio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-12 col-form-label">Posicion</label>
+          <div class="col-12">
+            <input
+              class="form-control"
+              type="text"
+              formControlName="posicion"
+              placeholder="Nombre de la posición"
+            />
+            <div
+              *ngIf="
+                jugadorForm.get('posicion')?.hasError('required') &&
+                jugadorForm.get('posicion')?.touched
+              "
+            >
+              <p class="text-danger">La posición del jugador es obligatoria.</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-12 col-form-label">Rol</label>
+          <div class="col-12">
+            <select class="form-control" formControlName="rol">
+              <option style="display: none" [ngValue]="null">
+                Seleccione un rol
+              </option>
+              <option *ngFor="let rol of roles">{{ rol }}</option>
+            </select>
+            <div
+              *ngIf="
+                jugadorForm.get('rol')?.hasError('required') &&
+                jugadorForm.get('rol')?.touched
+              "
+            >
+              <p class="text-danger">El rol es obligatorio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-12 col-form-label">Equipo</label>
+          <div class="col-12">
+            <select class="form-control" formControlName="equipoId">
+              <option style="display: none" [ngValue]="null">
+                Seleccione un equipo
+              </option>
+              <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">
+                {{ equipo.nombre }}
+              </option>
+            </select>
+            <div
+              *ngIf="
+                jugadorForm.get('equipoId')?.hasError('required') &&
+                jugadorForm.get('equipoId')?.touched
+              "
+            >
+              <p class="text-danger">El equipo es obligatorio.</p>
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-outline-success mr-2 mt-5"
+          (click)="crearJugador()"
+        >
+          Guardar Jugador
+        </button>
+      </form>
+    </div>
+  </section>
+  <section class="d-flex w-100 justify-content-center align-items-end mt-5">
+    <button
+      (click)="generarReporteBasico()"
+      class="btn btn-outline-warning w-25 m-5"
+    >
+      Informe basico
+    </button>
+    <button
+      (click)="generarReporteDetallado()"
+      class="btn btn-outline-warning w-25 m-5"
+    >
+      Informe detallado
+    </button>
+  </section>
+  <section
+    *ngIf="reporteBasicoData"
+    class="w-100 d-flex flex-column align-items-center"
+  >
+    <h3 class="my-3">Informe Básico</h3>
+    <table class="table table-bordered w-75 my-5">
+      <thead>
+        <tr>
+          <th class="w-50 text-center">Equipo</th>
+          <th class="w-25 text-center">Título</th>
+          <th class="w-25 text-center">Cantidad Jugadores</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipo of reporteBasicoData">
+          <td>{{ equipo.nombre }}</td>
+          <td>{{ equipo.titulo }}</td>
+          <td>{{ equipo.cantJugadores }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section
+    *ngIf="reporteDetalladoData"
+    class="w-100 d-flex flex-column align-items-center"
+  >
+    <h3 class="my-5">Informe Detallado</h3>
+    <table class="table table-bordered w-75 mt-4">
+      <thead>
+        <tr>
+          <th class="w-25 text-center">Equipo</th>
+          <th class="w-75 text-center">Jugadores(Rol - Posicion)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipo of reporteDetalladoData">
+          <td>{{ equipo.nombre }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let jugador of equipo.jugadores">
+                {{ jugador.nombre }} ({{ jugador.rol }} -
+                {{ jugador.posicion }})
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
