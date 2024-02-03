@@ -1,0 +1,32 @@
+<div
+  class="container-fluid w-100 text-center d-flex flex-column align-items-center mt-5"
+>
+  <section>
+    <h4>Validar numeros pares e impares</h4>
+    <hr class="w-100" />
+  </section>
+  <form [formGroup]="numeroForm" (ngSubmit)="validarNumero()">
+    <section
+      class="d-flex flex-column w-100 align-items-center justify-content-center"
+    >
+      <div class="form-group">
+        <label class="col-12 col-form-label">Número</label>
+        <div class="col-12">
+          <input
+            class="form-control"
+            type="text"
+            formControlName="numero"
+            placeholder="Ingrese un numero"
+          />
+          <div *ngIf="numeroInvalido()" class="text-danger">
+            Debe ingresar un número válido.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-primary mr-2 mt-5">
+        Validar
+      </button>
+    </section>
+    <p id="text" class="mt-5 text-danger" *ngIf="respuesta">{{ respuesta }}</p>
+  </form>
+</div>
