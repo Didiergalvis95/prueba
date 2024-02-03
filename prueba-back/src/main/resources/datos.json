@@ -1,0 +1,58 @@
+{
+  "horas": {
+    "1": "una",
+    "2": "dos",
+    "3": "tres",
+    "4": "cuatro",
+    "5": "cinco",
+    "6": "seis",
+    "7": "siete",
+    "8": "ocho",
+    "9": "nueve",
+    "10": "diez",
+    "11": "once",
+    "12": "doce"
+  },
+  "minutos": {
+    "0": " minutos",
+    "1": " y un minuto",
+    "2": " y dos minutos",
+    "3": " y tres minutos",
+    "4": " y cuatro minutos",
+    "5": " y cinco minutos",
+    "6": " y seis minutos",
+    "7": " y siete minutos",
+    "8": " y ocho minutos",
+    "9": " y nueve minutos",
+    "10": " y diez minutos",
+    "11": " y once minutos",
+    "12": " y doce minutos",
+    "13": " y trece minutos",
+    "14": " y catorce minutos",
+    "16": " y dieciseis minutos",
+    "17": " y diecisiete minutos",
+    "18": " y dieciocho minutos",
+    "19": " y diecinueve minutos",
+    "21": " y veintiun minutos",
+    "22": " y veintidos minutos",
+    "23": " y veintitres minutos",
+    "24": " y veinticuatro minutos",
+    "25": " y veinticinco minutos",
+    "26": " y veintiseis minutos",
+    "27": " y veintisiete minutos",
+    "28": " y veintiocho minutos",
+    "29": " y veintinueve minutos"
+  },
+  "decimas": {
+    "1": " y diez",
+    "2": " y veinte",
+    "3": " y treinta",
+    "4": " y cuarenta",
+    "5": " y cincuenta"
+  },
+  "especiales": {
+    "0": " en punto",
+    "15": " y cuarto",
+    "30": " y media"
+  }
+}
